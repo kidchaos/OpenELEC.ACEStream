@@ -1,4 +1,4 @@
-OneELEC.ACEStream
+OpenELEC.ACEStream
 =================
 
 **AceStream support for OpenELEC**
