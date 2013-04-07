@@ -13,15 +13,13 @@ OneELEC.ACEStream
 * # cp -a OpenELEC.ACEStream/python/system/PyAMF OpenELEC.tv/packages/python/system
 * # cp -a OpenELEC.ACEStream/security/openssl OpenELEC.tv/packages/security
 
-**Find file "options" in the project directories:**
- For example:
+**Find file "options" in the project directories:** (for example)
 * # cd /OpenELEC.tv/project/ION/options
 
 Replace this string:
-*   OEM_SUPPORT="no"
+* OEM_SUPPORT="no"
 
 On:
-*   OEM_SUPPORT="yes"
-
+* OEM_SUPPORT="yes"
 * # cd ~/OpenELEC.tv
 * # PROJECT=ION ARCH=x86_64 make release
