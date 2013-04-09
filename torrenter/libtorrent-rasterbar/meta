@@ -1,6 +1,6 @@
 ################################################################################
 #      This file is part of OpenELEC - http://www.openelec.tv
-#      Copyright (C) 2009-2012 Stephan Raue (stephan@openelec.tv)
+#      Copyright (C) 2013 Dag Wieers (dag@wieers.com)
 #
 #  This Program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -18,19 +18,18 @@
 #  http://www.gnu.org/copyleft/gpl.html
 ################################################################################
 
-PKG_NAME="oem"
-PKG_VERSION=""
+PKG_NAME="libtorrent-rasterbar"
+PKG_VERSION="0.16.9"
 PKG_REV="1"
 PKG_ARCH="any"
-PKG_LICENSE="various"
-PKG_SITE="http://www.openelec.tv"
-PKG_URL=""
-PKG_DEPENDS="$PROJECT M2Crypto PyAMF slang mc libtorrent-rasterbar"
-PKG_BUILD_DEPENDS="toolchain M2Crypto PyAMF slang mc libtorrent-rasterbar"
+PKG_LICENSE="LGPL"
+PKG_SITE="http://www.rasterbar.com/"
+PKG_URL="https://libtorrent.googlecode.com/files/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_DEPENDS=""
+PKG_BUILD_DEPENDS="toolchain boosts"
 PKG_PRIORITY="optional"
-PKG_SECTION="oem"
-PKG_SHORTDESC="OEM: Metapackage for various OEM packages"
-PKG_LONGDESC=""
+PKG_SECTION="torrenter"
+PKG_SHORTDESC="libtorrent-rasterbar"
 PKG_IS_ADDON="no"
 
 PKG_AUTORECONF="no"

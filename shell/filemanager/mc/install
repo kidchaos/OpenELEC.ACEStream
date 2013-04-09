@@ -1,0 +1,49 @@
+#!/bin/sh
+
+################################################################################
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2011 Stephan Raue (stephan@openelec.tv)
+#
+#  This Program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2, or (at your option)
+#  any later version.
+#
+#  This Program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with OpenELEC.tv; see the file COPYING.  If not, write to
+#  the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+#  http://www.gnu.org/copyleft/gpl.html
+################################################################################
+
+. config/options $1
+
+export DESTDIR=$PWD/$INSTALL
+cd $PKG_BUILD
+make install
+
+cd $ROOT
+
+rm -rf $INSTALL/usr/share/man
+mkdir -p $INSTALL/usr/share/man
+
+rm -f $INSTALL/usr/share/mc/help/mc.hlp.es
+rm -f $INSTALL/usr/share/mc/help/mc.hlp.hu
+rm -f $INSTALL/usr/share/mc/help/mc.hlp.it
+rm -f $INSTALL/usr/share/mc/help/mc.hlp.pl
+rm -f $INSTALL/usr/share/mc/help/mc.hlp.sr
+
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.cs
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.es
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.hu
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.it
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.nl
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.pl
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.sr
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.uk
+rm -f $INSTALL/usr/share/mc/hints/mc.hint.zh
+
