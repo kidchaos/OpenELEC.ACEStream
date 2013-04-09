@@ -30,4 +30,4 @@ cd $PKG_BUILD
 python setup.py build --cross-compile build_ext --openssl=$LIB_PREFIX
 python setup.py install --root=./.install --prefix=/usr build_ext --openssl=$LIB_PREFIX
 
-rm -rf .install/usr/lib/python*/site-packages/*/*.py
+find ./.install -name "*.py" -exec rm -rf "{}" ";"
