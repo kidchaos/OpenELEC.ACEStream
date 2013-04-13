@@ -19,11 +19,12 @@ OpenELEC.ACEStream
 **Find file "options" in the project directories:** (for example)
 * # cd /OpenELEC.tv/project/ION/options
 
-Replace this string:
+**Replace this string:**
 * OEM_SUPPORT="no"
 
-On:
+**On:**
 * OEM_SUPPORT="yes"
 
+**And compile:**
 * # cd ~/OpenELEC.tv
 * # PROJECT=ION ARCH=x86_64 make release
