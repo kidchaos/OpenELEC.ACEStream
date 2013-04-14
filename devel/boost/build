@@ -34,9 +34,6 @@ sh bootstrap.sh \
 echo "using gcc : `$TARGET_CC -v 2>&1  | tail -n 1 |awk '{print $3}'` : $TARGET_CC  : <compileflags>\"$CFLAGS\" <linkflags>\"$LDFLAGS\" ;" \
   > tools/build/v2/user-config.jam
 
-PYTHON_DIR="$(ls -d $ROOT/$TOOLCHAIN/include/python*)"
-sed -i 's|^#error "LONG_BIT\(.*\)|//#error "LONG_BIT\1|' $PYTHON_DIR/pyport.h
-
 $ROOT/$TOOLCHAIN/bin/bjam -d2 --toolset=gcc \
   link=shared \
   --prefix=$SYSROOT_PREFIX/usr \
