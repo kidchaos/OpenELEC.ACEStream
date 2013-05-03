@@ -19,12 +19,12 @@
 ################################################################################
 
 PKG_NAME="mc"
-PKG_VERSION="4.8.7"
+PKG_VERSION="4.8.8"
 PKG_REV="0"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.midnight-commander.org/"
-PKG_URL="http://www.midnight-commander.org/downloads/$PKG_NAME-$PKG_VERSION.tar.bz2"
+PKG_URL="https://fossies.org/linux/misc/$PKG_NAME-$PKG_VERSION.tar.gz"
 PKG_DEPENDS="glib slang"
 PKG_BUILD_DEPENDS="toolchain glib"
 PKG_PRIORITY="optional"

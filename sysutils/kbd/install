@@ -1,0 +1,78 @@
+#!/bin/sh
+
+################################################################################
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2012 Stephan Raue (stephan@openelec.tv)
+#
+#  This Program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2, or (at your option)
+#  any later version.
+#
+#  This Program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with OpenELEC.tv; see the file COPYING.  If not, write to
+#  the Free Software Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110, USA.
+#  http://www.gnu.org/copyleft/gpl.html
+################################################################################
+
+. config/options $1
+
+mkdir -p $INSTALL/usr/bin
+cp $PKG_BUILD/src/chvt $INSTALL/usr/bin   
+cp $PKG_BUILD/src/deallocvt $INSTALL/usr/bin   
+cp $PKG_BUILD/src/fgconsole $INSTALL/usr/bin 
+cp $PKG_BUILD/src/dumpkeys $INSTALL/usr/bin 
+cp $PKG_BUILD/src/getkeycodes $INSTALL/usr/bin 
+cp $PKG_BUILD/src/kbd_mode $INSTALL/usr/bin 
+cp $PKG_BUILD/src/kbdrate $INSTALL/usr/bin 
+cp $PKG_BUILD/src/loadkeys $INSTALL/usr/bin 
+cp $PKG_BUILD/src/loadunimap $INSTALL/usr/bin 
+
+#
+cp $PKG_BUILD/src/mapscrn $INSTALL/usr/bin 
+cp $PKG_BUILD/src/openvt $INSTALL/usr/bin 
+cp $PKG_BUILD/src/psfxtable $INSTALL/usr/bin 
+#
+cp $PKG_BUILD/src/setfont $INSTALL/usr/bin 
+cp $PKG_BUILD/src/setkeycodes $INSTALL/usr/bin 
+cp $PKG_BUILD/src/setleds $INSTALL/usr/bin 
+cp $PKG_BUILD/src/setmetamode $INSTALL/usr/bin 
+cp $PKG_BUILD/src/showconsolefont $INSTALL/usr/bin 
+cp $PKG_BUILD/src/showkey $INSTALL/usr/bin 
+cp $PKG_BUILD/src/unicode_start $INSTALL/usr/bin 
+cp $PKG_BUILD/src/unicode_stop $INSTALL/usr/bin 
+
+mkdir -p $INSTALL/usr/share/kbd/
+mkdir -p $INSTALL/usr/share/kbd/consolefonts
+cp $PKG_BUILD/data/consolefonts/*  $INSTALL/usr/share/kbd/consolefonts/
+
+mkdir -p $INSTALL/usr/share/kbd/consoletrans
+cp $PKG_BUILD/data/consoletrans/*  $INSTALL/usr/share/kbd/consoletrans/
+
+mkdir -p $INSTALL/usr/share/kbd/keymaps
+cp -R $PKG_BUILD/data/keymaps/*  $INSTALL/usr/share/kbd/keymaps/
+cp $PKG_DIR/config/ru-utf.map.gz $INSTALL/usr/share/kbd/keymaps/
+
+mkdir -p $INSTALL/usr/share/kbd/partialfonts
+cp $PKG_BUILD/data/partialfonts/*  $INSTALL/usr/share/kbd/partialfonts/
+
+mkdir -p $INSTALL/usr/share/kbd/unimaps
+cp $PKG_BUILD/data/unimaps/*  $INSTALL/usr/share/kbd/unimaps/
+
+mkdir -p $INSTALL/etc/profile.d
+cp $PKG_DIR/config/locale.conf $INSTALL/etc/profile.d/
+
+mkdir -p $INSTALL/usr/lib/locale
+cp -R $PKG_DIR/config/locale/* $INSTALL/usr/lib/locale/
+
+#
+cd $INSTALL/usr/bin
+ln -s psfxtable  psfaddtable  
+ln -s psfxtable  psfgettable 
+ln -s psfxtable  psfstriptable 
+ln -s loadunimap getunimap 

@@ -18,19 +18,23 @@
 #  http://www.gnu.org/copyleft/gpl.html
 ################################################################################
 
-PKG_NAME="oem"
-PKG_VERSION=""
-PKG_REV="1"
-PKG_ARCH="any"
-PKG_LICENSE="various"
-PKG_SITE="http://www.openelec.tv"
-PKG_URL=""
-PKG_DEPENDS="$PROJECT kbd M2Crypto PyAMF slang mc libtorrent-rasterbar"
-PKG_BUILD_DEPENDS="toolchain"
-PKG_PRIORITY="optional"
-PKG_SECTION="oem"
-PKG_SHORTDESC="OEM: Metapackage for various OEM packages"
-PKG_LONGDESC=""
-PKG_IS_ADDON="no"
+# setup keyboard layout
+#
+# runlevels: openelec
 
-PKG_AUTORECONF="no"
+(
+  if [ -f /storage/.cache/xkb/layout ]; then
+    . /storage/.cache/xkb/layout
+
+    progress "setup keyboard layout"
+
+      loadkeys ru-utf.map.gz > /dev/null
+      setfont /usr/share/kbd/consolefonts/Cyr_a8x16.psfu
+
+    # waiting for Xorg to start
+      wait_for_xorg
+
+    # setup keymap
+      setxkbmap -display $DISPLAY -layout "$XKBLAYOUT" -model "$XKBMODEL" -option "grp:alt_shift_toggle";
+  fi
+)&

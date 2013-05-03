@@ -1,0 +1,23 @@
+--- busybox-1.21.0/libbb/printable_string.c	2012-09-17 19:02:16.933893831 +0300
++++ busybox-1.21.0-unicode_printable/libbb/printable_string.c	2012-09-17 19:04:05.397894704 +0300
+@@ -31,8 +31,8 @@
+ 		}
+ 		if (c < ' ')
+ 			break;
+-		if (c >= 0x7f)
+-			break;
++		/* if (c >= 0x7f) */
++			/* break; */
+ 		s++;
+ 	}
+ 
+@@ -45,7 +45,8 @@
+ 			unsigned char c = *d;
+ 			if (c == '\0')
+ 				break;
+-			if (c < ' ' || c >= 0x7f)
++			/* if (c < ' ' || c >= 0x7f) */
++			if (c < ' ')
+ 				*d = '?';
+ 			d++;
+ 		}
